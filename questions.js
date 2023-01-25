@@ -1,4 +1,4 @@
-let questtions =[
+let questions =[
     {
         question : 'Wann wird der Tag der Deutschen Einheit gefeiert?',
         answer_1 : '2. November',

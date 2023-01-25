@@ -1,13 +1,27 @@
 body{
     min-height: 100vh;
-    background-color: rgb(181, 245, 245) !important;
+    background-color: rgb(227, 233, 233) !important;
 }
 .windowBox{
-    min-height: 100vh;
+    min-height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+.right{
+    background-color: rgb(116, 255, 188);
+}
+.wrong{
+    background-color: rgb(244, 133, 133);
+}
 .card{
-    
+    width: 18rem;
+    display: flex;
+    align-items: center;
+}
+.footer{
+    width: 18rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
