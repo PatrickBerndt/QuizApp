@@ -20,31 +20,45 @@ function addQuestion(){
 }
 
 function updateProgressbar(){
-    let percent = (currentQuestion+1) / questions.length * 100;
+    let percent = currentQuestion / (questions.length-1) * 100;
         percent = Math.round(percent);
         document.getElementById('progress-bar').style = `width: ${percent}%;`;
+        document.getElementById('progress-bar').innerHTML =`${percent}%`;
 }
 
 function answer(i){
+    
     let question = questions[currentQuestion]
     if (i == question['rightAnswer']){
-        document.getElementById(`answer_${i}`).parentNode.classList.add('right')
+        document.getElementById(`answer_${i}`).parentNode.classList.add('right')        
         rightAnswers++;
     }
     else{
         document.getElementById(`answer_${i}`).parentNode.classList.add('wrong')
         document.getElementById(`answer_${question['rightAnswer']}`).parentNode.classList.add('right')
+        
     }
+    disableAllInputs();
     document.getElementById('nextBtn').disabled = false;
 }
 
 function nextQuestion() {
-    currentQuestion++;
-    resetAnswerFields();
-    if(currentQuestion == questions.length){
+    if(currentQuestion<questions.length){
+        currentQuestion++;        
+    }
+    if (currentQuestion!=questions.length) {
+        addQuestion();
+    } else {
         showEndscreen();
-        }
-    addQuestion();
+    } 
+    resetAnswerFields();   
+}
+
+function disableAllInputs(){
+    document.getElementById('answer_1_wrapper').disabled = true;
+    document.getElementById('answer_2_wrapper').disabled = true;
+    document.getElementById('answer_3_wrapper').disabled = true;
+    document.getElementById('answer_4_wrapper').disabled = true;
 }
 
 function resetAnswerFields(){
@@ -52,6 +66,10 @@ function resetAnswerFields(){
     document.getElementById(`answer_2`).parentNode.classList.remove('right','wrong')
     document.getElementById(`answer_3`).parentNode.classList.remove('right','wrong')
     document.getElementById(`answer_4`).parentNode.classList.remove('right','wrong')
+    document.getElementById('answer_1_wrapper').disabled = false;
+    document.getElementById('answer_2_wrapper').disabled = false;
+    document.getElementById('answer_3_wrapper').disabled = false;
+    document.getElementById('answer_4_wrapper').disabled = false;
 }
 
 function showEndscreen(){

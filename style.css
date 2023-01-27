@@ -2,6 +2,9 @@ body{
     min-height: 100vh;
     background-color: rgb(227, 233, 233) !important;
 }
+button:disabled{
+    color: black;
+}
 .windowBox{
     min-height: 80vh;
     display: flex;
@@ -15,12 +18,12 @@ body{
     background-color: rgb(244, 133, 133);
 }
 .card{
-    width: 18rem;
+    width: 28rem;
     display: flex;
     align-items: center;
 }
 .footer{
-    width: 18rem;
+    width: 28rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -33,4 +36,12 @@ body{
 }
 .progress{
     border-radius: 0;
+}
+@media(max-width: 470px){
+    .card{
+        width: 90%;
+    }
+    .footer{
+        width: 90%;
+    }
 }
